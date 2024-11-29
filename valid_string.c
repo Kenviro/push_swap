@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   valid_string.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/26 15:02:28 by ktintim-          #+#    #+#             */
-/*   Updated: 2024/11/27 14:51:35 by ktintim-         ###   ########.fr       */
+/*   Created: 2024/11/27 14:38:05 by ktintim-          #+#    #+#             */
+/*   Updated: 2024/11/27 14:52:58 by ktintim-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	arg_error(void)
+int	check_char(char **argv)
 {
-	ft_putstr_fd("Error\n", 2);
-	exit(1);
-}
+	int	i;
 
-void	check_error(char **argv)
-{
-	if (check_arg(argv) == 1)
-		arg_error();
-	if (max_min_test(argv) == 1)
-		arg_error();
-	if (double_number(argv) == 1)
-		arg_error();
-	ft_printf("OK\n");
-}
-
-void	string_check(char **argv)
-{
-	if (check_char(argv) == 1)
-		arg_error();
-	ft_printf("OK\n"); 
+	i = 0;
+	while (argv[1][i])
+	{
+		if (argv[1][i] == 45 || argv[1][i] == 43 || argv[1][i] == 32)
+			i++;
+		if (argv[1][i] < 48 || argv[1][i] > 57)
+			return (1);
+		i++;
+	}
+	return (0);
 }

@@ -2,7 +2,7 @@ NAME = push_swap
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g3
 
-SRC = error.c push_swap.c valid_arg.c
+SRC = error.c push_swap.c valid_arg.c valid_string.c
 
 OBJ = $(SRC:.c=.o)
 
