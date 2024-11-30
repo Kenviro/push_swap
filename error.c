@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 15:02:28 by ktintim-          #+#    #+#             */
-/*   Updated: 2024/11/27 14:51:35 by ktintim-         ###   ########.fr       */
+/*   Updated: 2024/11/30 13:13:08 by kilian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,19 @@ void	check_error(char **argv)
 void	string_check(char **argv)
 {
 	if (check_char(argv) == 1)
+	{
+		printf("Error1\n");
 		arg_error();
+	}
+	if (double_number_string(argv) == 1)
+	{
+		printf("Error2\n");
+		arg_error();
+	}
+	if (max_min_test_string(argv) == 1)
+	{
+		printf("Error3\n");
+		arg_error();
+	}
 	ft_printf("OK\n"); 
 }

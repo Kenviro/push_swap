@@ -2,7 +2,8 @@ NAME = push_swap
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g3
 
-SRC = error.c push_swap.c valid_arg.c valid_string.c
+SRC = error.c push_swap.c valid_arg.c valid_string.c push_op.c \
+swap_op.c reverse_r_op.c rotate_op.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -25,7 +26,7 @@ $(LIBFT):
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJ) Libft/*.o
 
 fclean: clean
 	rm -f $(NAME)

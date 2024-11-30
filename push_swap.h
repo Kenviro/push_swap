@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 13:40:22 by ktintim-          #+#    #+#             */
-/*   Updated: 2024/11/28 14:09:02 by ktintim-         ###   ########.fr       */
+/*   Updated: 2024/11/30 12:39:52 by kilian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,7 @@ int		check_arg(char **argv);
 int		check_char(char **argv);
 int		double_number(char **argv);
 int		max_min_test(char **argv);
+int		double_number_string(char **argv);
+int		max_min_test_string(char **argv);
 
 #endif
