@@ -6,7 +6,7 @@
 /*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 13:40:22 by ktintim-          #+#    #+#             */
-/*   Updated: 2024/11/30 14:21:46 by kilian           ###   ########.fr       */
+/*   Updated: 2024/12/01 14:59:59 by kilian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,29 @@
 
 # include "Libft/libft.h"
 
-typedef struct s_stack
-{
-	int				content;
-	struct s_stack	*next;
-}	t_stack;
+// typedef struct s_stack
+// {
+// 	int				content;
+// 	struct s_stack	*next;
+// }	t_stack;
 
 typedef struct s_stacks
 {
-	t_stack		*stack_a;
-	t_stack		*stack_b;
+	t_list		*stack_a;
+	t_list		*stack_b;
 	int			size_a;
 	int			size_b;
 }	t_stacks;
 
-void	check_error(char **argv);
+void	check_error(char **argv, t_stacks *stacks);
 void	arg_error(void);
-void	string_check(char **argv);
+void	string_check(char **argv, t_stacks *stacks);
+void	parse_string(char **argv, t_stacks *stacks);
+void	parse_arg(char **argv, t_stacks *stacks);
+void	sort_small(t_stacks *stacks);
+void	is_sorted(t_stacks *stacks);
+void	sort_three(t_stacks *stacks);
+void	sort_four(t_stacks *stacks);
 
 int		check_arg(char **argv);
 int		check_char(char **argv);

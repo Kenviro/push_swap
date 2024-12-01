@@ -6,7 +6,7 @@
 /*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 14:18:24 by ktintim-          #+#    #+#             */
-/*   Updated: 2024/11/30 12:30:07 by kilian           ###   ########.fr       */
+/*   Updated: 2024/12/01 15:01:19 by kilian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	rra(t_stacks *stacks)
 {
-	t_stack	*tmp;
-	t_stack	*last;
+	t_list	*tmp;
+	t_list	*last;
 
 	if (stacks->size_a < 2)
 		return ;
@@ -30,8 +30,8 @@ void	rra(t_stacks *stacks)
 
 void	rrb(t_stacks *stacks)
 {
-	t_stack	*tmp;
-	t_stack	*last;
+	t_list	*tmp;
+	t_list	*last;
 
 	if (stacks->size_b < 2)
 		return ;

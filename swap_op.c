@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap_op.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 13:57:20 by ktintim-          #+#    #+#             */
-/*   Updated: 2024/11/29 14:17:58 by ktintim-         ###   ########.fr       */
+/*   Updated: 2024/12/01 15:02:01 by kilian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	sa(t_stacks *stacks)
 {
-	t_stack	*temp;
+	t_list	*temp;
 
 	if (stacks->size_a > 1)
 	{
@@ -27,7 +27,7 @@ void	sa(t_stacks *stacks)
 
 void	sb(t_stacks *stacks)
 {
-	t_stack	*temp;
+	t_list	*temp;
 
 	if (stacks->size_b > 1)
 	{

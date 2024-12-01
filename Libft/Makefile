@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 FILES = ft_atoi.c ft_str.c ft_bzero.c ft_is.c ft_mem.c ft_put.c ft_str_f.c ft_strchr.c \
 ft_strl.c ft_strtim.c ft_to.c ft_split.c ft_substr.c get_next_line.c \
-ft_pointerprintf.c ft_printf.c put_printf.c putnbrbase_printf.c putunsignednbr.c 
+ft_pointerprintf.c ft_printf.c put_printf.c putnbrbase_printf.c putunsignednbr.c ft_lst_bonus1.c ft_lst_bonus2.c
 
 O_FILES = $(FILES:.c=.o)
 

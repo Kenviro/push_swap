@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_op.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 13:57:52 by ktintim-          #+#    #+#             */
-/*   Updated: 2024/11/29 14:12:55 by ktintim-         ###   ########.fr       */
+/*   Updated: 2024/12/01 15:01:02 by kilian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	pa(t_stacks *stacks)
 {
-	t_stack	*temp;
+	t_list	*temp;
 
 	if (stacks->size_b > 0)
 	{
@@ -29,7 +29,7 @@ void	pa(t_stacks *stacks)
 
 void	pb(t_stacks *stacks)
 {
-	t_stack	*temp;
+	t_list	*temp;
 
 	if (stacks->size_a > 0)
 	{
