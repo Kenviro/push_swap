@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 15:02:28 by ktintim-          #+#    #+#             */
-/*   Updated: 2024/12/01 15:00:37 by kilian           ###   ########.fr       */
+/*   Updated: 2024/12/02 15:59:14 by ktintim-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	is_sorted(t_stacks *stacks)
 {
-	t_list	*temp;
+	t_stack	*temp;
 
 	temp = stacks->stack_a;
 	while (temp->next)
@@ -23,7 +23,6 @@ void	is_sorted(t_stacks *stacks)
 			return ;
 		temp = temp->next;
 	}
-	ft_putstr_fd("OK\n", 1);
 	exit(0);
 }
 
@@ -58,14 +57,9 @@ void	string_check(char **argv, t_stacks *stacks)
 void	sort_small(t_stacks *stacks)
 {
 	if (stacks->size_a == 2)
-	{
 		sa(stacks);
-		ft_putstr_fd("sa\n", 1);
-	}
 	else if (stacks->size_a == 3)
 		sort_three(stacks);
 	else if (stacks->size_a == 4)
 		sort_four(stacks);
-	// else if (stacks->size_a == 5)
-	// 	sort_five(stacks);
 }

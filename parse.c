@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 13:20:05 by kilian            #+#    #+#             */
-/*   Updated: 2024/12/01 15:08:22 by kilian           ###   ########.fr       */
+/*   Updated: 2024/12/02 15:07:38 by ktintim-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	parse_string(char **argv, t_stacks *stacks)
 {
 	int		i;
 	int		num;
-	t_list	*new;
+	t_stack	*new;
 
 	i = 0;
 	while (argv[1][i])
@@ -24,11 +24,11 @@ void	parse_string(char **argv, t_stacks *stacks)
 		if (argv[1][i] == ' ')
 		{
 			i++;
-			continue;
+			continue ;
 		}
 		num = ft_atoi(&argv[1][i]);
-		new = ft_lstnew(&num);
-		ft_lstadd_back(&stacks->stack_a, new);
+		new = ps_lstnew(num);
+		ps_lstadd_back(&stacks->stack_a, new);
 		stacks->size_a++;
 		while (argv[1][i] && argv[1][i] != ' ')
 			i++;
@@ -40,14 +40,14 @@ void	parse_arg(char **argv, t_stacks *stacks)
 {
 	int		i;
 	int		num;
-	t_list	*new;
+	t_stack	*new;
 
 	i = 1;
 	while (argv[i])
 	{
 		num = ft_atoi(argv[i]);
-		new = ft_lstnew(&num);
-		ft_lstadd_back(&stacks->stack_a, new);
+		new = ps_lstnew(num);
+		ps_lstadd_back(&stacks->stack_a, new);
 		stacks->size_a++;
 		i++;
 	}

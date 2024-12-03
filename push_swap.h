@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 13:40:22 by ktintim-          #+#    #+#             */
-/*   Updated: 2024/12/01 14:59:59 by kilian           ###   ########.fr       */
+/*   Updated: 2024/12/02 16:00:15 by ktintim-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,28 @@
 
 # include "Libft/libft.h"
 
-// typedef struct s_stack
-// {
-// 	int				content;
-// 	struct s_stack	*next;
-// }	t_stack;
+typedef struct s_stack
+{
+	struct s_stack	*prev;
+	int				content;
+	struct s_stack	*next;
+}	t_stack;
 
 typedef struct s_stacks
 {
-	t_list		*stack_a;
-	t_list		*stack_b;
+	t_stack		*stack_a;
+	t_stack		*stack_b;
 	int			size_a;
 	int			size_b;
+	int			nbr_op;
 }	t_stacks;
+
+// lst.c
+void	ps_lstclear(t_stack **lst);
+void	ps_lstdelone(t_stack *lst);
+t_stack	*ps_lstnew(int content);
+void	ps_lstadd_front(t_stack **lst, t_stack *new);
+void	ps_lstadd_back(t_stack **lst, t_stack *new);
 
 void	check_error(char **argv, t_stacks *stacks);
 void	arg_error(void);

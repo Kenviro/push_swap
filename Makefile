@@ -3,7 +3,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g3
 
 SRC = error.c push_swap.c valid_arg.c valid_string.c push_op.c \
-swap_op.c reverse_r_op.c rotate_op.c parse.c sort_small.c 
+swap_op.c reverse_r_op.c rotate_op.c parse.c sort_small.c  lst.c \
 
 OBJ = $(SRC:.c=.o)
 

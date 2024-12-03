@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   valid_string.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 14:38:05 by ktintim-          #+#    #+#             */
-/*   Updated: 2024/11/30 14:00:09 by kilian           ###   ########.fr       */
+/*   Updated: 2024/12/02 09:59:15 by ktintim-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,37 +29,30 @@ int	check_char(char **argv)
 	return (0);
 }
 
-int double_number_string(char **argv)
+int	double_number_string(char **argv)
 {
-	int	i;
-	int	j;
+	int	index[2];
 	int	num1;
 	int	num2;
 
-	i = 0;
-	while (argv[1][i])
+	index[0] = -1;
+	while (argv[1][index[0]])
 	{
-		if (argv[1][i] == ' ')
+		if (argv[1][index[0]++] == ' ')
+			continue ;
+		num1 = ft_atoi(&argv[1][index[0]]);
+		while (argv[1][index[0]] && argv[1][index[0]] != ' ')
+			index[0]++;
+		index[1] = index[0] - 1;
+		while (argv[1][index[1]])
 		{
-			i++;
-			continue;
-		}
-		num1 = ft_atoi(&argv[1][i]);
-		while (argv[1][i] && argv[1][i] != ' ')
-			i++;
-		j = i;
-		while (argv[1][j])
-		{
-			if (argv[1][j] == ' ')
-			{
-				j++;
-				continue;
-			}
-			num2 = ft_atoi(&argv[1][j]);
+			if (argv[1][index[1]++] == ' ')
+				continue ;
+			num2 = ft_atoi(&argv[1][index[1]]);
 			if (num1 == num2)
 				return (1);
-			while (argv[1][j] && argv[1][j] != ' ')
-				j++;
+			while (argv[1][index[1]++] && argv[1][index[1]] != ' ')
+				index[1]++;
 		}
 	}
 	return (0);
@@ -96,8 +89,8 @@ static long int	ft_atoi_str(char *str)
 
 int	max_min_test_string(char **argv)
 {
-	int	i;
-	long num;
+	int			i;
+	long int	num;
 
 	i = 0;
 	while (argv[1][i])

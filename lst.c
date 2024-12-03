@@ -1,30 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lst_bonus2.c                                    :+:      :+:    :+:   */
+/*   lst.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/04 09:59:13 by ktintim-          #+#    #+#             */
-/*   Updated: 2024/12/02 11:49:39 by ktintim-         ###   ########.fr       */
+/*   Created: 2024/12/02 11:45:44 by ktintim-          #+#    #+#             */
+/*   Updated: 2024/12/02 15:32:00 by ktintim-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-t_list	*ft_lstnew(void *content)
+void	ps_lstclear(t_stack **lst)
 {
-	t_list	*new_node;
+	t_stack	*temp;
 
-	new_node = (t_list *)malloc(sizeof(t_list));
+	while (*lst)
+	{
+		temp = (*lst)->next;
+		ps_lstdelone(*lst);
+		*lst = temp;
+	}
+}
+
+void	ps_lstdelone(t_stack *lst)
+{
+	if (!lst)
+		return ;
+	free(lst);
+}
+
+t_stack	*ps_lstnew(int content)
+{
+	t_stack	*new_node;
+
+	new_node = (t_stack *)malloc(sizeof(t_stack));
 	if (!new_node)
 		return (NULL);
+	new_node->prev = NULL;
 	new_node->content = content;
 	new_node->next = NULL;
 	return (new_node);
 }
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	ps_lstadd_front(t_stack **lst, t_stack *new)
 {
 	if (!new)
 		return ;
@@ -32,33 +52,9 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	*lst = new;
 }
 
-t_list	*ft_lstlast(t_list *lst)
+void	ps_lstadd_back(t_stack **lst, t_stack *new)
 {
-	if (lst == NULL)
-		return (NULL);
-	while (lst->next != NULL)
-		lst = lst->next;
-	return (lst);
-}
-
-int	ft_lstsize(t_list *lst)
-{
-	int	i;
-
-	i = 0;
-	if (!lst)
-		return (0);
-	while (lst->next != NULL)
-	{
-		lst = lst->next;
-		i++;
-	}
-	return (++i);
-}
-
-void	ft_lstadd_back(t_list **lst, t_list *new)
-{
-	t_list	*last;
+	t_stack	*last;
 
 	if (*lst == NULL)
 	{
@@ -69,4 +65,5 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	while (last->next != NULL)
 		last = last->next;
 	last->next = new;
+	new->prev = last;
 }

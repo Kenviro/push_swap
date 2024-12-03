@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   sort_small.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 13:48:03 by kilian            #+#    #+#             */
-/*   Updated: 2024/12/01 15:13:28 by kilian           ###   ########.fr       */
+/*   Updated: 2024/12/02 10:14:40 by ktintim-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int find_min(t_list *stack)
+static int	find_min(t_stack *stack)
 {
 	int	min;
 
@@ -37,7 +37,7 @@ void	sort_three(t_stacks *stacks)
 void	sort_four(t_stacks *stacks)
 {
 	int		min;
-	t_list	*temp;
+	t_stack	*temp;
 
 	min = find_min(stacks->stack_a);
 	temp = stacks->stack_a;
