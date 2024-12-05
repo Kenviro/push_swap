@@ -6,7 +6,7 @@
 /*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 14:19:38 by ktintim-          #+#    #+#             */
-/*   Updated: 2024/12/03 11:27:31 by ktintim-         ###   ########.fr       */
+/*   Updated: 2024/12/05 14:47:08 by ktintim-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(int argc, char **argv)
 	stacks->stack_a = NULL;
 	stacks->stack_b = NULL;
 	if (argc == 1)
-		arg_error();
+		return (0);
 	if (argc == 2)
 		string_check(argv, stacks);
 	else

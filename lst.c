@@ -6,7 +6,7 @@
 /*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 11:45:44 by ktintim-          #+#    #+#             */
-/*   Updated: 2024/12/02 15:32:00 by ktintim-         ###   ########.fr       */
+/*   Updated: 2024/12/05 13:58:01 by ktintim-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ void	ps_lstdelone(t_stack *lst)
 {
 	if (!lst)
 		return ;
+	if (lst->prev)
+		lst->prev->next = lst->next;
+	if (lst->next)
+		lst->next->prev = lst->prev;
 	free(lst);
 }
 
@@ -48,7 +52,10 @@ void	ps_lstadd_front(t_stack **lst, t_stack *new)
 {
 	if (!new)
 		return ;
+	if (*lst)
+		(*lst)->prev = new;
 	new->next = *lst;
+	new->prev = NULL;
 	*lst = new;
 }
 

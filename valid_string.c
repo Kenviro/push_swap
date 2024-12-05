@@ -6,7 +6,7 @@
 /*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 14:38:05 by ktintim-          #+#    #+#             */
-/*   Updated: 2024/12/02 09:59:15 by ktintim-         ###   ########.fr       */
+/*   Updated: 2024/12/05 14:49:28 by ktintim-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int	check_char(char **argv)
 	i = 0;
 	while (argv[1][i])
 	{
-		if (argv[1][i] == 45 || argv[1][i] == 43 || argv[1][i] == 32)
+		if ((argv[1][i] == 45 || argv[1][i] == 43 || argv[1][i] == 32) && \
+				argv[1][i + 1] != '\0')
 			i++;
 		else if (argv[1][i] < 48 || argv[1][i] > 57)
 			return (1);
@@ -75,12 +76,6 @@ static long int	ft_atoi_str(char *str)
 		i++;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if (result > (INT_MAX - (str[i] - '0')) / 10)
-		{
-			if (negative == -1)
-				return (INT_MIN);
-			return (INT_MAX);
-		}
 		result = result * 10 + (str[i] - '0');
 		i++;
 	}

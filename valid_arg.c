@@ -6,7 +6,7 @@
 /*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 14:23:52 by ktintim-          #+#    #+#             */
-/*   Updated: 2024/11/26 15:41:45 by ktintim-         ###   ########.fr       */
+/*   Updated: 2024/12/05 14:51:05 by ktintim-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	check_arg(char **argv)
 	while (argv[i])
 	{
 		j = 0;
-		if (argv[i][0] == 45 || argv[i][0] == 43)
+		if ((argv[i][0] == 45 || argv[i][0] == 43) && argv[i][1] != '\0')
 			j++;
 		while (argv[i][j])
 		{
