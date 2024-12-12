@@ -6,7 +6,7 @@
 /*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 13:48:03 by kilian            #+#    #+#             */
-/*   Updated: 2024/12/05 16:07:03 by ktintim-         ###   ########.fr       */
+/*   Updated: 2024/12/06 10:39:29 by ktintim-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,6 @@ static int	find_min(t_stack *stack)
 
 void	sort_three(t_stacks *stacks)
 {
-	if (!stacks || !stacks->stack_a || !stacks->stack_a->next || \
-			!stacks->stack_a->next->next)
-	{
-		ft_printf("Erreur : Liste chaînée invalide\n");
-		return ;
-	}
 	if (stacks->stack_a->content > stacks->stack_a->next->content)
 	{
 		if (stacks->stack_a->content < stacks->stack_a->next->next->content)
@@ -51,7 +45,8 @@ void	sort_three(t_stacks *stacks)
 	else
 	{
 		rra(stacks);
-		sa(stacks);
+		if (stacks->stack_a->content > stacks->stack_a->next->content)
+			sa(stacks);
 	}
 }
 
