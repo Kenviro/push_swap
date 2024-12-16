@@ -6,7 +6,7 @@
 /*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 14:23:52 by ktintim-          #+#    #+#             */
-/*   Updated: 2024/12/05 14:51:05 by ktintim-         ###   ########.fr       */
+/*   Updated: 2024/12/16 15:08:39 by ktintim-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ static int	int_min_max_test(char *str)
 	int	negative;
 	int	result;
 
+	if (ft_atoi(str) == INT_MIN)
+		return (0);
 	result = 0;
 	negative = 1;
 	i = 0;
@@ -72,9 +74,7 @@ static int	int_min_max_test(char *str)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		if (result > (INT_MAX - (str[i] - '0')) / 10)
-		{
 			return (1);
-		}
 		result = result * 10 + (str[i] - '0');
 		i++;
 	}

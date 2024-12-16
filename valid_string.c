@@ -6,7 +6,7 @@
 /*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 14:38:05 by ktintim-          #+#    #+#             */
-/*   Updated: 2024/12/05 14:49:28 by ktintim-         ###   ########.fr       */
+/*   Updated: 2024/12/16 17:39:51 by ktintim-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,11 @@ int	double_number_string(char **argv)
 	return (0);
 }
 
-static long int	ft_atoi_str(char *str)
+static int	ft_atoi_str(char *str, int *out, int *index)
 {
-	int			i;
-	int			negative;
-	long int	result;
+	int		i;
+	int		negative;
+	long	result;
 
 	result = 0;
 	negative = 1;
@@ -71,36 +71,40 @@ static long int	ft_atoi_str(char *str)
 	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
 		i++;
 	if (str[i] == '-')
-		negative *= -1;
+		negative = -1;
 	if (str[i] == '+' || str[i] == '-')
 		i++;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		result = result * 10 + (str[i] - '0');
+		if (result * negative > INT_MAX || result * negative < INT_MIN)
+			return (1);
 		i++;
 	}
-	return (result * negative);
+	*out = (int)(result * negative);
+	*index += i;
+	return (0);
 }
 
 int	max_min_test_string(char **argv)
 {
-	int			i;
-	long int	num;
+	int	i;
+	int	num;
 
 	i = 0;
 	while (argv[1][i])
 	{
 		while (argv[1][i] == ' ')
 			i++;
-		if (argv[1][i] == '-' || argv[1][i] == '+')
-			i++;
-		num = ft_atoi_str(&argv[1][i]);
-		if (num > 2147483647 || num < -2147483648)
+		if (argv[1][i] == '\0')
+			break ;
+		if (ft_atoi_str(&argv[1][i], &num, &i))
 			return (1);
-		while (argv[1][i] >= '0' && argv[1][i] <= '9')
-			i++;
 		while (argv[1][i] == ' ')
 			i++;
+		if (argv[1][i] != '\0' && (argv[1][i] < '0' || argv[1][i] > '9') && \
+			argv[1][i] != '+' && argv[1][i] != '-')
+			return (1);
 	}
 	return (0);
 }

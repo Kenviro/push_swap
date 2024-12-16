@@ -6,7 +6,7 @@
 /*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 13:40:22 by ktintim-          #+#    #+#             */
-/*   Updated: 2024/12/02 16:00:15 by ktintim-         ###   ########.fr       */
+/*   Updated: 2024/12/16 17:44:17 by ktintim-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,19 @@
 
 # include "Libft/libft.h"
 
+
+typedef struct s_data
+{
+	int		min;
+	int		max;
+	int		middle;
+	int		flag;
+}	t_data;
 typedef struct s_stack
 {
 	struct s_stack	*prev;
 	int				content;
+	int				index;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -38,6 +47,7 @@ t_stack	*ps_lstnew(int content);
 void	ps_lstadd_front(t_stack **lst, t_stack *new);
 void	ps_lstadd_back(t_stack **lst, t_stack *new);
 
+void	index_stack(t_stacks *stacks);
 void	check_error(char **argv, t_stacks *stacks);
 void	arg_error(void);
 void	string_check(char **argv, t_stacks *stacks);
