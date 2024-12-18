@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 13:40:22 by ktintim-          #+#    #+#             */
-/*   Updated: 2024/12/18 15:04:46 by kilian           ###   ########.fr       */
+/*   Updated: 2024/12/18 17:18:36 by ktintim-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,10 @@ void	sort_small(t_stacks *stacks);
 void	is_sorted(t_stacks *stacks);
 void	sort_three(t_stacks *stacks);
 void	sort_four(t_stacks *stacks);
-void	next_min(t_stacks *stacks, t_data *data);
-void	quick_sort(t_stacks *stacks);
-int		check_stack_a(t_stack *stack_a, int size_a);
+//void	next_min(t_stacks *stacks, t_data *data);
+void	quick_sort(t_stacks *stacks, t_stack **stack_a, \
+			t_stack **stack_b);
+int		check_stack_a(t_stack **stack_a, int size_a);
 int		check_sort(t_stack *stack);
 int		check_reverse_sort(t_stacks *table);
 int		ps_lstsize(t_stack *lst);

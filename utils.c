@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 12:31:25 by kilian            #+#    #+#             */
-/*   Updated: 2024/12/18 15:01:20 by kilian           ###   ########.fr       */
+/*   Updated: 2024/12/18 17:17:01 by ktintim-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,14 +72,14 @@ t_stack	*search_max(t_stack **stack)
 	return (max);
 }
 
-int	check_stack_a(t_stack *stack_a, int size_a)
+int	check_stack_a(t_stack **stack_a, int size_a)
 {
 	int	length;
 
-	length = ps_lstsize(stack_a);
+	length = ps_lstsize(*stack_a);
 	if (length != size_a)
 		return (0);
-	if (check_sort(stack_a) == 0)
+	if (check_sort(*stack_a) == 0)
 		return (0);
 	return (1);
 }

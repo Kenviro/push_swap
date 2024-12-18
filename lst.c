@@ -6,7 +6,7 @@
 /*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 11:45:44 by ktintim-          #+#    #+#             */
-/*   Updated: 2024/12/13 14:41:26 by ktintim-         ###   ########.fr       */
+/*   Updated: 2024/12/18 17:24:53 by ktintim-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ t_stack	*ps_lstnew(int content)
 	new_node->prev = NULL;
 	new_node->content = content;
 	new_node->index = -1;
+	new_node->process = 0;
 	new_node->next = NULL;
 	return (new_node);
 }
