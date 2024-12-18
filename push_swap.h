@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 13:40:22 by ktintim-          #+#    #+#             */
-/*   Updated: 2024/12/16 17:44:17 by ktintim-         ###   ########.fr       */
+/*   Updated: 2024/12/18 15:04:46 by kilian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_stack
 	struct s_stack	*prev;
 	int				content;
 	int				index;
+	int				process;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -57,6 +58,15 @@ void	sort_small(t_stacks *stacks);
 void	is_sorted(t_stacks *stacks);
 void	sort_three(t_stacks *stacks);
 void	sort_four(t_stacks *stacks);
+void	next_min(t_stacks *stacks, t_data *data);
+void	quick_sort(t_stacks *stacks);
+int		check_stack_a(t_stack *stack_a, int size_a);
+int		check_sort(t_stack *stack);
+int		check_reverse_sort(t_stacks *table);
+int		ps_lstsize(t_stack *lst);
+t_stack	*search_min(t_stack **stack);
+t_stack	*search_max(t_stack **stack);
+t_stack	*ps_lstlast(t_stack *lst);
 
 int		check_arg(char **argv);
 int		check_char(char **argv);

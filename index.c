@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   index.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 13:10:35 by ktintim-          #+#    #+#             */
-/*   Updated: 2024/12/13 15:06:54 by ktintim-         ###   ########.fr       */
+/*   Updated: 2024/12/18 15:07:33 by kilian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ void	index_stack(t_stacks *stacks)
 			{
 				temp->index = index;
 				index++;
-				printf("index: %d - content: %d\n", temp->index, temp->content);
 			}
 			temp = temp->next;
 		}
