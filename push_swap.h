@@ -6,7 +6,7 @@
 /*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 13:40:22 by ktintim-          #+#    #+#             */
-/*   Updated: 2024/12/19 14:34:07 by ktintim-         ###   ########.fr       */
+/*   Updated: 2024/12/20 16:54:39 by ktintim-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define PUSH_SWAP_H
 
 # include "Libft/libft.h"
-
 
 typedef struct s_data
 {
@@ -58,7 +57,7 @@ void	sort_small(t_stacks *stacks);
 void	is_sorted(t_stacks *stacks);
 void	sort_three(t_stacks *stacks);
 void	sort_four(t_stacks *stacks);
-//void	next_min(t_stacks *stacks, t_data *data);
+void	five_sort(t_stacks	*stacks);
 void	quick_sort(t_stacks *stacks, t_stack **stack_a, \
 			t_stack **stack_b);
 int		check_stack_a(t_stack **stack_a, int size_a);
@@ -68,7 +67,7 @@ int		ps_lstsize(t_stack *lst);
 t_stack	*search_min(t_stack **stack);
 t_stack	*search_max(t_stack **stack);
 t_stack	*ps_lstlast(t_stack *lst);
-t_stack	*push_lstnew(int content, int index);
+t_stack	*push_lstnew(int content, int index, int process);
 
 int		check_arg(char **argv);
 int		check_char(char **argv);

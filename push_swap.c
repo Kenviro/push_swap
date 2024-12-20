@@ -6,11 +6,23 @@
 /*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 14:19:38 by ktintim-          #+#    #+#             */
-/*   Updated: 2024/12/20 15:18:18 by ktintim-         ###   ########.fr       */
+/*   Updated: 2024/12/20 17:03:49 by ktintim-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void	free_list(t_stack *stack)
+{
+	t_stack	*tmp;
+
+	while (stack != NULL)
+	{
+		tmp = stack;
+		stack = stack->next;
+		free(tmp);
+	}
+}
 
 int	main(int argc, char **argv)
 {
@@ -28,6 +40,8 @@ int	main(int argc, char **argv)
 	index_stack(stacks);
 	if (stacks->size_a <= 4)
 		sort_small(stacks);
+	else if (stacks->size_a == 5)
+		five_sort(stacks);
 	else
 		quick_sort(stacks, &stacks->stack_a, &stacks->stack_b);
 	while (stacks->stack_a)
@@ -37,16 +51,9 @@ int	main(int argc, char **argv)
 		stacks->stack_a = stacks->stack_a->next;
 	}
 	ft_printf("\n");
-	// while (stacks->stack_b)
-	// {
-	// 	ft_printf("stack b:");
-	// 	ft_printf("%d ", stacks->stack_a->content);
-	// 	stacks->stack_a = stacks->stack_a->next;
-	// }
-	// ft_printf("\n");
-	// ft_printf("nbr_op: %d\n", stacks->nbr_op);
-	ps_lstclear(&stacks->stack_a);
-	ps_lstclear(&stacks->stack_b);
+	ft_printf("nbr_op: %d\n", stacks->nbr_op);
+	free_list(stacks->stack_a);
+	free_list(stacks->stack_b);
 	free(stacks);
 	return (0);
 }
@@ -74,3 +81,4 @@ int	ps_lstsize(t_stack *lst)
 	}
 	return (++i);
 }
+
