@@ -6,7 +6,7 @@
 /*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 13:40:22 by ktintim-          #+#    #+#             */
-/*   Updated: 2024/12/18 17:18:36 by ktintim-         ###   ########.fr       */
+/*   Updated: 2024/12/19 14:34:07 by ktintim-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int		ps_lstsize(t_stack *lst);
 t_stack	*search_min(t_stack **stack);
 t_stack	*search_max(t_stack **stack);
 t_stack	*ps_lstlast(t_stack *lst);
+t_stack	*push_lstnew(int content, int index);
 
 int		check_arg(char **argv);
 int		check_char(char **argv);

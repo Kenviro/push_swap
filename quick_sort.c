@@ -6,7 +6,7 @@
 /*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 13:59:44 by ktintim-          #+#    #+#             */
-/*   Updated: 2024/12/18 18:35:38 by ktintim-         ###   ########.fr       */
+/*   Updated: 2024/12/20 15:00:12 by ktintim-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,9 @@ static void	sort_a(t_stacks *stacks, t_stack **stack_a, \
 	int	i;
 
 	i = 0;
-	size_b = ps_lstsize(*stack_b);
-	// printf("size_a : %d\n", stacks->size_a);
-	// printf("size_b : %d\n", stacks->size_b);
-	// printf("min : %d\n", data->min);
-	// printf("max : %d\n", data->max);
-	// printf("middle : %d\n", data->middle);
+	size_b = stacks->size_b;
 	while (ps_lstsize(*stack_b) && i < size_b)
 	{
-		// printf("i : %d\n", i);
 		if ((*stack_b)->index == data->min)
 			next_min(stacks, stack_a, stack_b, data);
 		else if ((*stack_b)->index >= data->middle)
@@ -105,28 +99,22 @@ static void	next_min(t_stacks *stacks, t_stack **stack_a, t_stack **stack_b,
 static void	quick_start(t_stacks *stacks, t_stack **stack_a, t_stack **stack_b,
 						t_data *data)
 {
-	// data->middle = calculate_median(*stack_a, data->min, data->max);
+	int	i;
+	int	size_a;
 
-	while (*stack_a)
+	i = -1;
+	size_a = stacks->size_a;
+	while (i++ < size_a)
 	{
 		if ((*stack_a)->index <= data->middle)
-		{
-			// printf("Pousser vers stack_b : index = %d\n", (*stack_a)->index);
 			pb(stacks);
-		}
 		else
 		{
-			if (ps_lstsize(*stack_b) > 1 && (*stack_b)->index < data->middle / 2)
-			{
-				// printf("Double rotation (rr) : stack_a->index = %d, stack_b->index = %d\n",
-					//    (*stack_a)->index, (*stack_b)->index);
+			if (ps_lstsize(*stack_b) > 1 && \
+					(*stack_b)->index < data->middle / 2)
 				rr(stacks);
-			}
 			else
-			{
-				// printf("Rotation de stack_a (ra) : index = %d\n", (*stack_a)->index);
 				ra(stacks);
-			}
 		}
 	}
 	data->max = data->middle;
@@ -134,28 +122,19 @@ static void	quick_start(t_stacks *stacks, t_stack **stack_a, t_stack **stack_b,
 	data->flag++;
 }
 
-
 void	quick_sort(t_stacks *stacks, t_stack **stack_a, \
 			t_stack **stack_b)
 {
 	t_data	data;
+	int		size_a;
 
+	size_a = stacks->size_a;
 	data.min = search_min(stack_a)->index;
 	data.max = search_max(stack_a)->index;
 	data.middle = data.max / 2 + data.min;
 	data.flag = 0;
-	// printf("min : %d\n", data.min);
-	// printf("max : %d\n", data.max);
-	// printf("middle : %d\n", data.middle);
-	// exit(0);
 	quick_start(stacks, stack_a, stack_b, &data);
-	// printf("size_a : %d\n", stacks->size_a);
-	// printf("size_b : %d\n", stacks->size_b);
-	// printf("min : %d\n", data.min);
-	// printf("max : %d\n", data.max);
-	// printf("middle : %d\n", data.middle);
-	// exit(0);
-	while (!(check_stack_a(stack_a, stacks->size_a)))
+	while ((check_stack_a(stack_a, size_a)) == 0)
 	{
 		if (ps_lstsize(*stack_b) == 0)
 			sort_b(stacks, stack_a, stack_b, &data);

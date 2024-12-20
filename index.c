@@ -6,7 +6,7 @@
 /*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 13:10:35 by ktintim-          #+#    #+#             */
-/*   Updated: 2024/12/18 18:11:46 by ktintim-         ###   ########.fr       */
+/*   Updated: 2024/12/19 14:55:57 by ktintim-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ void	index_stack(t_stacks *stacks)
 			if (temp->content == i)
 			{
 				temp->index = index;
-				// printf("content-index : %d-%d\n", temp->content, temp->index);
 				index++;
 			}
 			temp = temp->next;
