@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 13:40:22 by ktintim-          #+#    #+#             */
-/*   Updated: 2024/12/20 16:54:39 by ktintim-         ###   ########.fr       */
+/*   Updated: 2024/12/22 21:45:48 by kilian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ t_stack	*ps_lstnew(int content);
 void	ps_lstadd_front(t_stack **lst, t_stack *new);
 void	ps_lstadd_back(t_stack **lst, t_stack *new);
 
+void	free_stacks(t_stacks *stacks);
 void	index_stack(t_stacks *stacks);
 void	check_error(char **argv, t_stacks *stacks);
 void	arg_error(void);
@@ -67,7 +68,6 @@ int		ps_lstsize(t_stack *lst);
 t_stack	*search_min(t_stack **stack);
 t_stack	*search_max(t_stack **stack);
 t_stack	*ps_lstlast(t_stack *lst);
-t_stack	*push_lstnew(int content, int index, int process);
 
 int		check_arg(char **argv);
 int		check_char(char **argv);

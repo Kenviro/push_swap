@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_small.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 13:48:03 by kilian            #+#    #+#             */
-/*   Updated: 2024/12/19 14:37:30 by ktintim-         ###   ########.fr       */
+/*   Updated: 2024/12/22 19:35:16 by kilian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,25 +28,28 @@ static int	find_min(t_stack *stack)
 
 void	sort_three(t_stacks *stacks)
 {
-	if (stacks->stack_a->content > stacks->stack_a->next->content)
+	if (check_sort(stacks->stack_a) == 0)
 	{
-		if (stacks->stack_a->content < stacks->stack_a->next->next->content)
-			sa(stacks);
+		if (stacks->stack_a->content > stacks->stack_a->next->content)
+		{
+			if (stacks->stack_a->content < stacks->stack_a->next->next->content)
+				sa(stacks);
+			else
+			{
+				ra(stacks);
+				if (stacks->stack_a->content > stacks->stack_a->next->content)
+					sa(stacks);
+			}
+			if (stacks->stack_a->next->content > \
+					stacks->stack_a->next->next->content)
+				rra(stacks);
+		}
 		else
 		{
-			ra(stacks);
+			rra(stacks);
 			if (stacks->stack_a->content > stacks->stack_a->next->content)
 				sa(stacks);
 		}
-		if (stacks->stack_a->next->content > \
-				stacks->stack_a->next->next->content)
-			rra(stacks);
-	}
-	else
-	{
-		rra(stacks);
-		if (stacks->stack_a->content > stacks->stack_a->next->content)
-			sa(stacks);
 	}
 }
 

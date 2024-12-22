@@ -3,26 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 14:19:38 by ktintim-          #+#    #+#             */
-/*   Updated: 2024/12/20 17:03:49 by ktintim-         ###   ########.fr       */
+/*   Updated: 2024/12/22 21:51:44 by kilian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	free_list(t_stack *stack)
+void	free_stacks(t_stacks *stacks)
 {
-	t_stack	*tmp;
-
-	while (stack != NULL)
+	if (stacks)
 	{
-		tmp = stack;
-		stack = stack->next;
-		free(tmp);
+		ps_lstclear(&(stacks->stack_a));
+		ps_lstclear(&(stacks->stack_b));
+		free(stacks);
 	}
 }
+
 
 int	main(int argc, char **argv)
 {
@@ -44,17 +43,7 @@ int	main(int argc, char **argv)
 		five_sort(stacks);
 	else
 		quick_sort(stacks, &stacks->stack_a, &stacks->stack_b);
-	while (stacks->stack_a)
-	{
-		ft_printf("stack a:");
-		ft_printf("%d ", stacks->stack_a->content);
-		stacks->stack_a = stacks->stack_a->next;
-	}
-	ft_printf("\n");
-	ft_printf("nbr_op: %d\n", stacks->nbr_op);
-	free_list(stacks->stack_a);
-	free_list(stacks->stack_b);
-	free(stacks);
+	free_stacks(stacks);
 	return (0);
 }
 

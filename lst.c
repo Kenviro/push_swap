@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lst.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 11:45:44 by ktintim-          #+#    #+#             */
-/*   Updated: 2024/12/20 15:37:40 by ktintim-         ###   ########.fr       */
+/*   Updated: 2024/12/22 21:24:17 by kilian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,12 @@ void	ps_lstclear(t_stack **lst)
 	while (*lst)
 	{
 		temp = (*lst)->next;
-		ps_lstdelone(*lst);
+		free(*lst);
 		*lst = temp;
 	}
+	*lst = NULL;
 }
+
 
 void	ps_lstdelone(t_stack *lst)
 {
