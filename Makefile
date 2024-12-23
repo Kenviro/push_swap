@@ -1,7 +1,7 @@
 NAME = push_swap
 NAME_BONUS = checker
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g3
+CFLAGS = -Wall -Wextra -Werror
 
 SRC = error.c push_swap.c valid_arg.c valid_string.c push_op.c \
 swap_op.c reverse_r_op.c rotate_op.c parse.c sort_small.c lst.c \
