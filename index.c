@@ -6,7 +6,7 @@
 /*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 13:10:35 by ktintim-          #+#    #+#             */
-/*   Updated: 2024/12/27 13:55:02 by kilian           ###   ########.fr       */
+/*   Updated: 2024/12/27 15:04:30 by kilian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ static int	is_indexed(t_stack *stack)
 
 void	index_stack(t_stacks *stacks)
 {
+	t_stack	*max_node;
 	t_stack	*temp;
 	int		index;
 	int		max;
@@ -34,7 +35,7 @@ void	index_stack(t_stacks *stacks)
 	{
 		temp = stacks->stack_a;
 		max = INT_MIN;
-		t_stack *max_node = NULL;
+		max_node = NULL;
 		while (temp)
 		{
 			if (temp->content >= max && temp->index == -1)
@@ -49,7 +50,6 @@ void	index_stack(t_stacks *stacks)
 		index--;
 	}
 }
-
 
 t_stack	*find_max(t_stack *stack)
 {

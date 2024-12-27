@@ -6,7 +6,7 @@
 /*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 14:19:38 by ktintim-          #+#    #+#             */
-/*   Updated: 2024/12/22 21:51:44 by kilian           ###   ########.fr       */
+/*   Updated: 2024/12/27 15:04:59 by kilian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	free_stacks(t_stacks *stacks)
 		free(stacks);
 	}
 }
-
 
 int	main(int argc, char **argv)
 {
@@ -70,4 +69,3 @@ int	ps_lstsize(t_stack *lst)
 	}
 	return (++i);
 }
-

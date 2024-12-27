@@ -6,7 +6,7 @@
 /*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 11:45:44 by ktintim-          #+#    #+#             */
-/*   Updated: 2024/12/23 13:41:23 by kilian           ###   ########.fr       */
+/*   Updated: 2024/12/27 15:05:59 by kilian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	ps_lstclear(t_stack **lst)
 	}
 	*lst = NULL;
 }
-
 
 void	ps_lstdelone(t_stack *lst)
 {

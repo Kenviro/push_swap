@@ -6,7 +6,7 @@
 /*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 14:19:38 by ktintim-          #+#    #+#             */
-/*   Updated: 2024/12/23 15:20:05 by kilian           ###   ########.fr       */
+/*   Updated: 2024/12/27 15:05:37 by kilian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,24 @@
 
 static void	checker2(t_stacks *stacks, char *line)
 {
-		if (ft_strncmp(line, "ra", 3) == 0)
-			check_ra(stacks);
-		else if (ft_strncmp(line, "rb", 3) == 0)
-			check_rb(stacks);
-		else if (ft_strncmp(line, "rr", 3) == 0)
-			check_rr(stacks);
-		else if (ft_strncmp(line, "rra", 4) == 0)
-			check_rra(stacks);
-		else if (ft_strncmp(line, "rrb", 4) == 0)
-			check_rrb(stacks);
-		else if (ft_strncmp(line, "rrr", 4) == 0)
-			check_rrr(stacks);
+	if (ft_strncmp(line, "ra", 3) == 0)
+		check_ra(stacks);
+	else if (ft_strncmp(line, "rb", 3) == 0)
+		check_rb(stacks);
+	else if (ft_strncmp(line, "rr", 3) == 0)
+		check_rr(stacks);
+	else if (ft_strncmp(line, "rra", 4) == 0)
+		check_rra(stacks);
+	else if (ft_strncmp(line, "rrb", 4) == 0)
+		check_rrb(stacks);
+	else if (ft_strncmp(line, "rrr", 4) == 0)
+		check_rrr(stacks);
 }
 
 static void	checker(t_stacks *stacks)
 {
 	char	*line;
-	
+
 	while (1)
 	{
 		line = get_next_line(0);
