@@ -6,7 +6,7 @@
 /*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 13:10:35 by ktintim-          #+#    #+#             */
-/*   Updated: 2024/12/27 13:19:10 by kilian           ###   ########.fr       */
+/*   Updated: 2024/12/27 13:55:02 by kilian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	index_stack(t_stacks *stacks)
 		t_stack *max_node = NULL;
 		while (temp)
 		{
-			if (temp->content > max && temp->index == -1)
+			if (temp->content >= max && temp->index == -1)
 			{
 				max = temp->content;
 				max_node = temp;
@@ -46,7 +46,6 @@ void	index_stack(t_stacks *stacks)
 		}
 		if (max_node)
 			max_node->index = index;
-
 		index--;
 	}
 }
