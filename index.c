@@ -3,28 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   index.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 13:10:35 by ktintim-          #+#    #+#             */
-/*   Updated: 2024/12/19 14:55:57 by ktintim-         ###   ########.fr       */
+/*   Updated: 2024/12/27 13:19:10 by kilian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static int	min_content(t_stack *stack)
-{
-	int	min;
-
-	min = stack->content;
-	while (stack)
-	{
-		if (stack->content < min)
-			min = stack->content;
-		stack = stack->next;
-	}
-	return (min);
-}
 
 static int	is_indexed(t_stack *stack)
 {
@@ -41,28 +27,30 @@ void	index_stack(t_stacks *stacks)
 {
 	t_stack	*temp;
 	int		index;
-	int		i;
+	int		max;
 
-	index = 0;
-	i = min_content(stacks->stack_a);
-	temp = stacks->stack_a;
-	while (1)
+	index = ps_lstsize(stacks->stack_a) - 1;
+	while (is_indexed(stacks->stack_a) == 0)
 	{
+		temp = stacks->stack_a;
+		max = INT_MIN;
+		t_stack *max_node = NULL;
 		while (temp)
 		{
-			if (temp->content == i)
+			if (temp->content > max && temp->index == -1)
 			{
-				temp->index = index;
-				index++;
+				max = temp->content;
+				max_node = temp;
 			}
 			temp = temp->next;
 		}
-		i++;
-		temp = stacks->stack_a;
-		if (is_indexed(stacks->stack_a) == 1)
-			break ;
+		if (max_node)
+			max_node->index = index;
+
+		index--;
 	}
 }
+
 
 t_stack	*find_max(t_stack *stack)
 {
