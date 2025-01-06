@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 14:19:38 by ktintim-          #+#    #+#             */
-/*   Updated: 2024/12/27 15:05:37 by kilian           ###   ########.fr       */
+/*   Updated: 2025/01/06 10:24:26 by ktintim-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,10 @@ int	main(int argc, char **argv)
 	stacks->stack_a = NULL;
 	stacks->stack_b = NULL;
 	if (argc == 1)
+	{
+		free(stacks);
 		return (0);
+	}
 	if (argc == 2)
 		string_check(argv, stacks);
 	else

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 13:40:22 by ktintim-          #+#    #+#             */
-/*   Updated: 2024/12/23 13:17:12 by kilian           ###   ########.fr       */
+/*   Updated: 2025/01/06 10:18:55 by ktintim-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	ps_lstadd_back(t_stack **lst, t_stack *new);
 void	free_stacks(t_stacks *stacks);
 void	index_stack(t_stacks *stacks);
 void	check_error(char **argv, t_stacks *stacks);
-void	arg_error(void);
+void	arg_error(t_stacks *stacks);
 void	string_check(char **argv, t_stacks *stacks);
 void	parse_string(char **argv, t_stacks *stacks);
 void	parse_arg(char **argv, t_stacks *stacks);

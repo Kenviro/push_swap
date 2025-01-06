@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 13:16:58 by kilian            #+#    #+#             */
-/*   Updated: 2024/12/23 13:54:06 by kilian           ###   ########.fr       */
+/*   Updated: 2025/01/06 10:20:03 by ktintim-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ t_stack	*ps_lstlast(t_stack *lst);
 void	free_stacks(t_stacks *stacks);
 void	string_check(char **argv, t_stacks *stacks);
 void	check_error(char **argv, t_stacks *stacks);
-void	arg_error(void);
+void	arg_error(t_stacks *stacks);
 void	is_sorted(t_stacks *stacks);
 
 // valid_arg.c

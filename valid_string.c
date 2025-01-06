@@ -6,7 +6,7 @@
 /*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 14:38:05 by ktintim-          #+#    #+#             */
-/*   Updated: 2024/12/16 17:39:51 by ktintim-         ###   ########.fr       */
+/*   Updated: 2025/01/06 10:10:40 by ktintim-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,35 +26,6 @@ int	check_char(char **argv)
 			return (1);
 		else
 			i++;
-	}
-	return (0);
-}
-
-int	double_number_string(char **argv)
-{
-	int	index[2];
-	int	num1;
-	int	num2;
-
-	index[0] = -1;
-	while (argv[1][index[0]])
-	{
-		if (argv[1][index[0]++] == ' ')
-			continue ;
-		num1 = ft_atoi(&argv[1][index[0]]);
-		while (argv[1][index[0]] && argv[1][index[0]] != ' ')
-			index[0]++;
-		index[1] = index[0] - 1;
-		while (argv[1][index[1]])
-		{
-			if (argv[1][index[1]++] == ' ')
-				continue ;
-			num2 = ft_atoi(&argv[1][index[1]]);
-			if (num1 == num2)
-				return (1);
-			while (argv[1][index[1]++] && argv[1][index[1]] != ' ')
-				index[1]++;
-		}
 	}
 	return (0);
 }
@@ -83,6 +54,35 @@ static int	ft_atoi_str(char *str, int *out, int *index)
 	}
 	*out = (int)(result * negative);
 	*index += i;
+	return (0);
+}
+
+int	double_number_string(char **argv)
+{
+	int	index[2];
+	int	num1;
+	int	num2;
+
+	index[0] = 0;
+	while (argv[1][index[0]])
+	{
+		if (argv[1][index[0]] == ' ')
+			index[0]++;
+		ft_atoi_str(&argv[1][index[0]], &num1, &index[0]);
+		while (argv[1][index[0]] && argv[1][index[0]] != ' ')
+			index[0]++;
+		index[1] = index[0];
+		while (argv[1][index[1]])
+		{
+			if (argv[1][index[1]] == ' ')
+				index[1]++;
+			ft_atoi_str(&argv[1][index[1]], &num2, &index[1]);
+			if (num1 == num2)
+				return (1);
+			while (argv[1][index[1]++] && argv[1][index[1]] != ' ')
+				index[1]++;
+		}
+	}
 	return (0);
 }
 
