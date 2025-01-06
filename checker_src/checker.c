@@ -6,7 +6,7 @@
 /*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 14:19:38 by ktintim-          #+#    #+#             */
-/*   Updated: 2025/01/06 10:24:26 by ktintim-         ###   ########.fr       */
+/*   Updated: 2025/01/06 14:35:34 by ktintim-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,13 @@ static void	checker2(t_stacks *stacks, char *line)
 		check_rrb(stacks);
 	else if (ft_strncmp(line, "rrr", 4) == 0)
 		check_rrr(stacks);
+	else
+	{
+		ft_putstr_fd("Error\n", 2);
+		free(line);
+		free_stacks(stacks);
+		exit(1);
+	}
 }
 
 static void	checker(t_stacks *stacks)
